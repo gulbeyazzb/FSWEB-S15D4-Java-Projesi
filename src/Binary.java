@@ -3,11 +3,17 @@ import java.util.*;
 public class Binary {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int number = Integer.parseInt(scanner.nextLine());
-        System.out.println("girilen değer: " + number);
+        while (true) {
 
-        int div = number / 2;
-        int mod = number % 2;
+
+            int number = Integer.parseInt(scanner.nextLine());
+            if(number==0){
+                break;
+            }
+            System.out.println("girilen değer: " + number);
+
+            int div = number / 2;
+            int mod = number % 2;
 
 
 //TO DECİMAL AGAİN------------------------------------------
@@ -27,21 +33,23 @@ public class Binary {
 //        System.out.println(sum);
 
 //BİNARY FORMAT------------------------------------------
-        Stack<Integer> modS = new Stack<>();
-        modS.push(mod);
+            Stack<Integer> modS = new Stack<>();
+            modS.push(mod);
 
-        while (div >= 2) {
-            modS.push(div % 2);
-            div = (div / 2);
-        }
-        modS.add(div);
-        System.out.println(modS);
+            while (div >= 2) {
+                modS.push(div % 2);
+                div = (div / 2);
+            }
+            modS.add(div);
+            System.out.println(modS);
 
-        String nums="";
-        while(!modS.isEmpty()){
-           nums+=modS.pop();
+            String nums = "";
+            while (!modS.isEmpty()) {
+                nums += modS.pop();
+            }
+            System.out.println(nums);
+
         }
-        System.out.println(nums);
 
     }
 }
